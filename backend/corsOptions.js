@@ -1,11 +1,4 @@
-let whitelist = ["http://localhost:5173"];
 export const corsOptions = {
-    origin: function (origin, callback) {
-        if (whitelist.indexOf(origin) !== -1) {
-            callback(null, true);
-        } else {
-            callback(new Error("Not allowed by CORS"));
-        }
-    },
+    origin: ["http://localhost:5173", "https://main--jobbroad.netlify.app"],
     credentials: true,
 };
