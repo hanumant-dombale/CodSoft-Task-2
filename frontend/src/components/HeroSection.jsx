@@ -32,7 +32,7 @@ const HeroSection = () => {
                     find diverse opportunities tailored to your skills and
                     career goals.
                 </p>
-                <div className="flex w-[40%] shadow-lg border border-gray-200 pl-3 rounded-full items-center gap-4 mx-auto">
+                <div className="flex w-[90%] sm:w-[40%] shadow-lg border border-gray-200 pl-3 rounded-full items-center gap-4 mx-auto">
                     <input
                         type="text"
                         placeholder="Find your dream jobs"
