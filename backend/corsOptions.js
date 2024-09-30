@@ -1,5 +1,5 @@
 export const corsOptions = {
     origin: "http://localhost:5173",
-    origin: "https://jobborad.netlify.app",
+    origin: "https://main--jobbroad.netlify.app",
     credentials: true,
 };
