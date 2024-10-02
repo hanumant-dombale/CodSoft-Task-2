@@ -1,6 +1,5 @@
 import { Job } from "../models/job.model.js";
 
-// admin post krega job
 export const postJob = async (req, res) => {
     try {
         const {
@@ -84,7 +83,7 @@ export const getAllJobs = async (req, res) => {
         console.log(error);
     }
 };
-// student
+
 export const getJobById = async (req, res) => {
     try {
         const jobId = req.params.id;
