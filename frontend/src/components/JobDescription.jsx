@@ -3,7 +3,6 @@ import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { APPLICATION_API_END_POINT, JOB_API_END_POINT } from "@/utils/constant";
 import { setSingleJob } from "@/redux/jobSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "sonner";
@@ -24,7 +23,7 @@ const JobDescription = () => {
     const applyJobHandler = async () => {
         try {
             const res = await axios.get(
-                `${APPLICATION_API_END_POINT}/apply/${jobId}`,
+                `/api/application/apply/${jobId}`,
                 { withCredentials: true }
             );
 
@@ -50,7 +49,7 @@ const JobDescription = () => {
         const fetchSingleJob = async () => {
             try {
                 const res = await axios.get(
-                    `${JOB_API_END_POINT}/get/${jobId}`,
+                    `/api/job/get/${jobId}`,
                     { withCredentials: true }
                 );
                 if (res.data.success) {
