@@ -1,7 +1,5 @@
 # Job Borad 
 
-[Project link netlify](https://jobbroad.netlify.app)
-
 [Project link render](https://job-borad-a737.onrender.com)
 
 # CodSoft-Task-2
