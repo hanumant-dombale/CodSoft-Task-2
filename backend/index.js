@@ -19,13 +19,15 @@ app.use(cookieParser());
 // app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 3000;
-
+app.get("/", (req, res) => {
+	res.send("Backend run successfully");
+});
 app.use("/api/user", userRoute);
 app.use("/api/application", applicationRoute);
 app.use("/api/job", jobRoute);
 app.use("/api/company", companyRoute);
 
 app.listen(PORT, () => {
-    connectDB();
-    console.log(`Server running at port ${PORT}`);
+	connectDB();
+	console.log(`Server running at port ${PORT}`);
 });
