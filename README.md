@@ -1,7 +1,5 @@
 # Job Borad 
 
-[Project link render](https://job-borad-a737.onrender.com)
-
 # CodSoft-Task-2
 
 I am a Full Stack Developer with expertise in both front-end and back-end development, skilled at building dynamic, responsive web applications.

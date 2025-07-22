@@ -11,17 +11,5 @@ export default defineConfig(({ mode }) => {
 				"@": path.resolve(__dirname, "./src"),
 			},
 		},
-		server: {
-			proxy: {
-				"/api": {
-					target: env.VITE_API_BASE,
-					changeOrigin: true,
-					secure: false,
-					// rewrite: (path) => {
-					// 	path.replace(/^\/api/, '');
-					// },
-				},
-			},
-		},
 	};
 });
