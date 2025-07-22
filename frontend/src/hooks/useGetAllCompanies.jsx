@@ -8,7 +8,7 @@ const useGetAllCompanies = () => {
     useEffect(() => {
         const fetchCompanies = async () => {
             try {
-                const res = await axios.get(`/api/company/get`, {
+                const res = await axios.get(`${import.meta.env.VITE_API_BASE}/api/company/get`, {
                     withCredentials: true,
                 });
                 if (res.data.success) {

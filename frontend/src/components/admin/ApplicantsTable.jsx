@@ -24,7 +24,7 @@ const ApplicantsTable = () => {
         try {
             axios.defaults.withCredentials = true;
             const res = await axios.post(
-                `/api/application/status/${id}/update`,
+                `${import.meta.env.VITE_API_BASE}/api/application/status/${id}/update`,
                 { status }
             );
             console.log(res);

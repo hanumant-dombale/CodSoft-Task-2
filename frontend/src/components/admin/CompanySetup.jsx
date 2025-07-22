@@ -46,7 +46,7 @@ const CompanySetup = () => {
         try {
             setLoading(true);
             const res = await axios.put(
-                `/api/company/update/${params.id}`,
+                `${import.meta.env.VITE_API_BASE}/api/company/update/${params.id}`,
                 formData,
                 {
                     headers: {

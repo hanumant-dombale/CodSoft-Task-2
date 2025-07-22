@@ -16,7 +16,7 @@ const CompanyCreate = () => {
     const registerNewCompany = async () => {
         try {
             const res = await axios.post(
-                `/api/company/register`,
+                `${import.meta.env.VITE_API_BASE}/api/company/register`,
                 { companyName },
                 {
                     headers: {

@@ -53,7 +53,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
         try {
             setLoading(true);
             const res = await axios.post(
-                `/api/user/profile/update`,
+                `${import.meta.env.VITE_API_BASE}/api/user/profile/update`,
                 formData,
                 {
                     headers: {

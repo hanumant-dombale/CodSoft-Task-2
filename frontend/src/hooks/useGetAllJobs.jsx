@@ -10,7 +10,7 @@ const useGetAllJobs = () => {
         const fetchAllJobs = async () => {
             try {
                 const res = await axios.get(
-                    `/api/job/get?keyword=${searchedQuery}`,
+                    `${import.meta.env.VITE_API_BASE}/api/job/get?keyword=${searchedQuery}`,
                     { withCredentials: true }
                 );
                 if (res.data.success) {

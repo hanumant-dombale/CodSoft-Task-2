@@ -15,7 +15,7 @@ const Applicants = () => {
         const fetchAllApplicants = async () => {
             try {
                 const res = await axios.get(
-                    `/api/application/${params.id}/applicants`,
+                    `${import.meta.env.VITE_API_BASE}/api/application/${params.id}/applicants`,
                     { withCredentials: true }
                 );
                 dispatch(setAllApplicants(res.data.job));

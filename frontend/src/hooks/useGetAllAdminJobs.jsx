@@ -9,7 +9,7 @@ const useGetAllAdminJobs = () => {
         const fetchAllAdminJobs = async () => {
             try {
                 const res = await axios.get(
-                    `/api/job/getadminjobs`,
+                    `${import.meta.env.VITE_API_BASE}/api/job/getadminjobs`,
                     { withCredentials: true }
                 );
                 if (res.data.success) {
