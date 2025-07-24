@@ -5,7 +5,7 @@ const isAuthenticated = async (req, res, next) => {
 		const token = req.cookies.token;
 		if (!token) {
 			return res.status(401).json({
-				message: "User Not Authenticated",
+				message: "User not authenticated",
 				success: false,
 			});
 		}
@@ -14,7 +14,7 @@ const isAuthenticated = async (req, res, next) => {
 
 		if (!decode) {
 			return res.status(401).json({
-				message: "Invalid Token",
+				message: "Invalid token",
 				success: false,
 			});
 		}
@@ -24,7 +24,7 @@ const isAuthenticated = async (req, res, next) => {
 	} catch (error) {
 		console.log("Authentication Error: ", error);
 		return res.status(401).json({
-			message: "Invalid Token Or Expired Token",
+			message: "Invalid token or Expired token",
 			success: false,
 		});
 	}
