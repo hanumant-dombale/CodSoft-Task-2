@@ -17,21 +17,13 @@ export const register = async (req, res) => {
 		}
 		const file = req.file || "";
 		let cloudResponse = null;
-		// console.log(file)
 		if (file) {
 			const fileUri = getDataUri(file);
-			// console.log(fileUri)
-			try {
-				cloudResponse =
-					await cloudinary.uploader.upload(
-						fileUri.content
-					);
-			} catch (error) {
-				console.log(error);
-			}
+			cloudResponse = await cloudinary.uploader.upload(
+				fileUri.content
+			);
 		}
 
-		// console.log(fullname, email, phoneNumber, password, role, file);
 		const user = await User.findOne({ email });
 		if (user) {
 			return res.status(409).json({

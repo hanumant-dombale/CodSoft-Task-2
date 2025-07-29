@@ -93,14 +93,14 @@ export const updateCompany = async (req, res) => {
 		const { name, description, website, location } = req.body;
 
 		const file = req.file || "";
-		let cloudResponse;
-		if (file !== "") {
+		let cloudResponse = null;
+		if (file) {
 			const fileUri = getDataUri(file);
 			cloudResponse = await cloudinary.uploader.upload(
 				fileUri.content
 			);
 		}
-		const logo = cloudResponse.secure_url;
+		const logo = cloudResponse?.secure_url;
 
 		const updateData = {
 			name,
@@ -128,7 +128,7 @@ export const updateCompany = async (req, res) => {
 			success: true,
 		});
 	} catch (error) {
-		console.log(error);
+		console.log("Update Company Error:", error);
 		return res.status(500).json({
 			message: "Internal server error while updating company.",
 			success: false,
