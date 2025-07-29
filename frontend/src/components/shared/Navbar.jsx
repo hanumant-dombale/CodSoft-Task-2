@@ -76,7 +76,7 @@ const Navbar = () => {
                     ) : (
                         <Popover>
                             <PopoverTrigger asChild>
-                                <Avatar className="cursor-pointer">
+                                <Avatar className="cursor-pointer rounded-full bg-white">
                                     <AvatarImage
                                         src={user?.profile?.profilePhoto}
                                         alt="@shadcn"
@@ -85,8 +85,8 @@ const Navbar = () => {
                             </PopoverTrigger>
                             <PopoverContent className="w-80">
                                 <div className="">
-                                    <div className="flex gap-2 space-y-2">
-                                        <Avatar className="cursor-pointer">
+                                    <div className="flex gap-2 space-y-2 ">
+                                        <Avatar className="cursor-pointer rounded-full bg-white">
                                             <AvatarImage
                                                 src={
                                                     user?.profile?.profilePhoto

@@ -92,8 +92,8 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
                                     Name
                                 </Label>
                                 <Input
-                                    id="name"
-                                    name="name"
+                                    id="fullname"
+                                    name="fullname"
                                     value={input.fullname}
                                     onChange={changeEventHandler}
                                     className="col-span-3"
@@ -117,8 +117,8 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
                                     Number
                                 </Label>
                                 <Input
-                                    id="number"
-                                    name="number"
+                                    id="phoneNumber"
+                                    name="phoneNumber"
                                     type="number"
                                     value={input.phoneNumber}
                                     onChange={changeEventHandler}
