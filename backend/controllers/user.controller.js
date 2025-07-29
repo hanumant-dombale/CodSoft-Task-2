@@ -16,14 +16,22 @@ export const register = async (req, res) => {
 			});
 		}
 		const file = req.file || "";
-		let cloudResponse;
-		if (file !== "") {
+		let cloudResponse = null;
+		// console.log(file)
+		if (file) {
 			const fileUri = getDataUri(file);
-			cloudResponse = await cloudinary.uploader.upload(
-				fileUri.content
-			);
+			// console.log(fileUri)
+			try {
+				cloudResponse =
+					await cloudinary.uploader.upload(
+						fileUri.content
+					);
+			} catch (error) {
+				console.log(error);
+			}
 		}
 
+		// console.log(fullname, email, phoneNumber, password, role, file);
 		const user = await User.findOne({ email });
 		if (user) {
 			return res.status(409).json({
@@ -40,7 +48,7 @@ export const register = async (req, res) => {
 			password: hashedPassword,
 			role,
 			profile: {
-				profilePhoto: cloudResponse?.secure_url || "",
+				profilePhoto: cloudResponse?.secure_url,
 			},
 		});
 
@@ -99,7 +107,7 @@ export const login = async (req, res) => {
 		};
 		const token = await jwt.sign(
 			tokenData,
-			process.env.SECRET_KEY,
+			process.env.JWT_SECRET_KEY,
 			{
 				expiresIn: "1d",
 			}
