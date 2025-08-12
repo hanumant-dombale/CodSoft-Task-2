@@ -1,7 +1,7 @@
 import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-import { corsOptions } from "./corsOptions.js";
+import { corsOrigins } from "./corsOptions.js";
 
 // imports all routes
 import userRoute from "./routes/user.route.js";
@@ -14,7 +14,13 @@ const app = express();
 app.use(express.json({ limit: "20kb" }));
 app.use(express.urlencoded({ extended: true, limit: "20kb" }));
 app.use(cookieParser());
-app.use(cors(corsOptions));
+app.use(
+	cors({
+		origin: corsOrigins,
+		credentials: true,
+		methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+	})
+);
 
 app.get("/", (req, res) => {
 	res.send("😊😊 Job board backend run successfully 😊😊");
