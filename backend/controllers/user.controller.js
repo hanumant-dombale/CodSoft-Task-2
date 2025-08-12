@@ -6,8 +6,7 @@ import cloudinary from "../utils/cloudinary.js";
 
 export const register = async (req, res) => {
 	try {
-		const { fullname, email, phoneNumber, password, role } =
-			req.body;
+		const { fullname, email, phoneNumber, password, role } = req.body;
 
 		if (!fullname || !email || !phoneNumber || !password || !role) {
 			return res.status(400).json({
@@ -19,9 +18,7 @@ export const register = async (req, res) => {
 		let cloudResponse = null;
 		if (file) {
 			const fileUri = getDataUri(file);
-			cloudResponse = await cloudinary.uploader.upload(
-				fileUri.content
-			);
+			cloudResponse = await cloudinary.uploader.upload(fileUri.content);
 		}
 
 		const user = await User.findOne({ email });
@@ -77,10 +74,7 @@ export const login = async (req, res) => {
 				success: false,
 			});
 		}
-		const isPasswordMatch = await bcrypt.compare(
-			password,
-			user.password
-		);
+		const isPasswordMatch = await bcrypt.compare(password, user.password);
 		if (!isPasswordMatch) {
 			return res.status(400).json({
 				message: "Incorrect password.",
@@ -97,13 +91,9 @@ export const login = async (req, res) => {
 		const tokenData = {
 			userId: user._id,
 		};
-		const token = await jwt.sign(
-			tokenData,
-			process.env.JWT_SECRET_KEY,
-			{
-				expiresIn: "1d",
-			}
-		);
+		const token = await jwt.sign(tokenData, process.env.JWT_SECRET_KEY, {
+			expiresIn: "1d",
+		});
 
 		user = {
 			_id: user._id,
@@ -118,7 +108,8 @@ export const login = async (req, res) => {
 			.status(200)
 			.cookie("token", token, {
 				maxAge: 1 * 24 * 60 * 60 * 1000,
-				httpsOnly: true,
+				httpOnly: true,
+				secure: true,
 				sameSite: "strict",
 			})
 			.json({
@@ -129,7 +120,7 @@ export const login = async (req, res) => {
 	} catch (error) {
 		console.log("Login Error: ", error);
 		return res.status(500).json({
-			message: "Internal server error while logining user.",
+			message: "Internal server error while login user.",
 			success: false,
 			error: error,
 		});
@@ -160,9 +151,7 @@ export const updateProfile = async (req, res) => {
 		let cloudResponse;
 		if (file !== "") {
 			const fileUri = getDataUri(file);
-			cloudResponse = await cloudinary.uploader.upload(
-				fileUri.content
-			);
+			cloudResponse = await cloudinary.uploader.upload(fileUri.content);
 		}
 
 		let skillsArray;
