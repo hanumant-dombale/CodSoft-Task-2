@@ -129,11 +129,12 @@ export const login = async (req, res) => {
 
 export const logout = async (req, res) => {
 	try {
-		res.clearCookie("token", {
+		res.cookie("token", "", {
+			maxAge: 1 * 24 * 60 * 60 * 1000,
 			httpOnly: true,
 			secure: process.env.NODE_ENV === "production",
 			sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
-			path: "/", // must match login
+			path: "/",
 		});
 		return res.status(200).json({
 			message: "User logged out successfully.",
