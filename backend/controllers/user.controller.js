@@ -129,23 +129,23 @@ export const login = async (req, res) => {
 
 export const logout = async (req, res) => {
 	try {
-		res.cookie("token", "", {
-			maxAge: 1 * 24 * 60 * 60 * 1000,
+		res.clearCookie("token", {
 			httpOnly: true,
 			secure: process.env.NODE_ENV === "production",
 			sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
-			path: "/",
+			path: "/", // must match login cookie
 		});
+
 		return res.status(200).json({
-			message: "User logged out successfully.",
 			success: true,
+			message: "User logged out successfully.",
 		});
 	} catch (error) {
-		console.log("Logout Error: ", error);
+		console.error("Logout Error:", error);
 		return res.status(500).json({
-			message: "Internal server error while logout user.",
 			success: false,
-			error: error,
+			message: "Internal server error while logging out user.",
+			error,
 		});
 	}
 };
