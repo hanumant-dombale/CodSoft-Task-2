@@ -109,6 +109,7 @@ export const login = async (req, res) => {
 			httpOnly: true,
 			secure: process.env.NODE_ENV === "production",
 			sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
+			path: "/",
 		});
 
 		return res.status(200).json({
@@ -128,12 +129,7 @@ export const login = async (req, res) => {
 
 export const logout = async (req, res) => {
 	try {
-		res.clearCookie("token", {
-			httpOnly: true,
-			secure: process.env.NODE_ENV === "production",
-			sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
-			path: "/",
-		});
+		res.clearCookie("token");
 		return res.status(200).json({
 			message: "User logged out successfully.",
 			success: true,
