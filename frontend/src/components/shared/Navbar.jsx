@@ -23,6 +23,7 @@ const Navbar = () => {
 					withCredentials: true,
 				}
 			);
+			localStorage.clear();
 			if (res.data.success) {
 				dispatch(setUser(null));
 				navigate("/");
