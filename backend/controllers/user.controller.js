@@ -104,19 +104,18 @@ export const login = async (req, res) => {
 			profile: user.profile,
 		};
 
-		return res
-			.status(200)
-			.cookie("token", token, {
-				maxAge: 1 * 24 * 60 * 60 * 1000,
-				httpOnly: true,
-				secure: process.env.NODE_ENV === "production",
-				sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
-			})
-			.json({
-				message: `Welcome back ${user.fullname}. Your are login successfully.`,
-				user,
-				success: true,
-			});
+		res.cookie("token", token, {
+			maxAge: 1 * 24 * 60 * 60 * 1000,
+			httpOnly: true,
+			secure: process.env.NODE_ENV === "production",
+			sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
+		});
+
+		return res.status(200).json({
+			message: `Welcome back ${user.fullname}. Your are login successfully.`,
+			user,
+			success: true,
+		});
 	} catch (error) {
 		console.log("Login Error: ", error);
 		return res.status(500).json({
@@ -129,17 +128,15 @@ export const login = async (req, res) => {
 
 export const logout = async (req, res) => {
 	try {
-		return res
-			.status(200)
-			.clearCookie("token", {
-				httpOnly: true,
-				secure: process.env.NODE_ENV === "production",
-				sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
-			})
-			.json({
-				message: "User logged out successfully.",
-				success: true,
-			});
+		res.clearCookie("token", {
+			httpOnly: true,
+			secure: process.env.NODE_ENV === "production",
+			sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
+		});
+		return res.status(200).json({
+			message: "User logged out successfully.",
+			success: true,
+		});
 	} catch (error) {
 		console.log("Logout Error: ", error);
 		return res.status(500).json({
