@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { setUser } from "@/redux/authSlice";
 import { toast } from "sonner";
+import { persistor } from "./store";
 
 const Navbar = () => {
 	const { user } = useSelector((store) => store.auth);
@@ -23,7 +24,7 @@ const Navbar = () => {
 					withCredentials: true,
 				}
 			);
-			localStorage.clear();
+			persistor.purge();
 			if (res.data.success) {
 				dispatch(setUser(null));
 				navigate("/");
