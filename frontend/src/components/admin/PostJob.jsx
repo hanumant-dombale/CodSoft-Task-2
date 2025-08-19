@@ -50,7 +50,7 @@ const PostJob = () => {
         e.preventDefault();
         try {
             setLoading(true);
-            const res = await axios.post(`${import.meta.env.VITE_API_BASE}/api/job/post`, input, {
+            const res = await axios.post(`/api/job/post`, input, {
                 headers: {
                     "Content-Type": "application/json",
                 },

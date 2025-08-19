@@ -23,7 +23,7 @@ const JobDescription = () => {
     const applyJobHandler = async () => {
         try {
             const res = await axios.get(
-                `${import.meta.env.VITE_API_BASE}/api/application/apply/${jobId}`,
+                `/api/application/apply/${jobId}`,
                 { withCredentials: true }
             );
 
@@ -49,7 +49,7 @@ const JobDescription = () => {
         const fetchSingleJob = async () => {
             try {
                 const res = await axios.get(
-                    `${import.meta.env.VITE_API_BASE}/api/job/get/${jobId}`,
+                    `/api/job/get/${jobId}`,
                     { withCredentials: true }
                 );
                 if (res.data.success) {

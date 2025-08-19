@@ -9,7 +9,7 @@ const useGetCompanyById = (companyId) => {
         const fetchSingleCompany = async () => {
             try {
                 const res = await axios.get(
-                    `${import.meta.env.VITE_API_BASE}/api/company/get/${companyId}`,
+                    `/api/company/get/${companyId}`,
                     { withCredentials: true }
                 );
                 console.log(res.data.company);

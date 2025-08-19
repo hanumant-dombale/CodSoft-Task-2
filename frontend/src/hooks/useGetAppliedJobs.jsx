@@ -10,7 +10,7 @@ const useGetAppliedJobs = () => {
         const fetchAppliedJobs = async () => {
             try {
                 const res = await axios.get(
-                    `${import.meta.env.VITE_API_BASE}/api/application/get`,
+                    `/api/application/get`,
                     { withCredentials: true }
                 );
                 console.log(res.data);
