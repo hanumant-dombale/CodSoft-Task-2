@@ -23,7 +23,7 @@ const Navbar = () => {
 					withCredentials: true,
 				}
 			);
-			localStorage.removeItem("persist:root");
+			localStorage.clear();
 			if (res.data.success) {
 				dispatch(setUser(null));
 				navigate("/");
