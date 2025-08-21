@@ -2,6 +2,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import authSlice from "./authSlice";
 import jobSlice from "./jobSlice";
 import {
+    persistStore,
     persistReducer,
     FLUSH,
     REHYDRATE,
@@ -45,5 +46,7 @@ const store = configureStore({
             },
         }),
 });
+
+export const persistor = persistStore(store);
 
 export default store;
