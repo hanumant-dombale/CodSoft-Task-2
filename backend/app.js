@@ -34,6 +34,11 @@ app.get("/", (req, res) => {
 	res.send("😊😊 Job board backend run successfully 😊😊");
 });
 
+// app.use((req, res, next) => {
+// 	console.log(`📡 ${req.method} ${req.originalUrl}`);
+// 	next();
+// });
+
 // use all routes
 app.use("/api/user", userRoute);
 app.use("/api/application", applicationRoute);
