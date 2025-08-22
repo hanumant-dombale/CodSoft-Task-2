@@ -13,8 +13,29 @@ This project was built as a hands-on learning exercise to strengthen full-stack 
 check out project :- [Live Site](https://jobboardapplication.netlify.app/)
 
 Website preview:-
-![Live Site](./Assets/Screenshot%202025-08-22%20155455.png)
-![Live Site](./Assets/Screenshot%202025-08-22%20155510.png)
+
+-   Home page: <br>
+    ![Home page](./Assets/HomePage1.png)
+    ![Home page](./Assets/HomePage2.png)
+
+-   Filter jobs & Browse page:<br>
+    ![Filter jobs](./Assets/FilterJobsPage.png)
+    ![Browse jobs](./Assets/BrowerJobPage.png)
+
+-   Login page:<br>
+    ![Login](./Assets/LoginPage.png)
+
+-   Sign up page:<br>
+    ![SignUp](./Assets/SignupPage.png)
+
+-   Profile page:<br>
+    ![Profile](./Assets/ProfilePage.png)
+
+-   Update page:<br>
+    ![Update](./Assets/UpdateInfoPope.png)
+
+-   Navigation page:<br>
+    ![Profile](./Assets/NavigationPage.png)
 
 <br>
 
@@ -59,6 +80,62 @@ cd backend
 npm install
 npm run dev Or npm start
 ```
+
+<br>
+
+# 🔑 Environment Variables
+
+### Backend
+
+```
+# Database
+MONGODB_URI=your-mongodb-connection-string
+
+# Server
+PORT=5000
+NODE_ENV=development
+
+# Cloudinary (for file uploads: resumes, images, etc.)
+CLOUDINARY_CLOUD_NAME=your-cloudinary-cloud-name
+CLOUDINARY_API_KEY=your-cloudinary-api-key
+CLOUDINARY_API_SECRET=your-cloudinary-api-secret
+
+# Authentication
+JWT_SECRET_KEY=your-jwt-secret-key
+
+# CORS / Allowed Origins
+ALLOWED_ORIGIN=http://localhost:3000
+```
+
+#### 📝 Explanation of Variables
+
+-   MONGODB_URI → Connection string for MongoDB (Atlas or local).
+
+-   PORT → Port for the backend server (default 5000).
+
+-   NODE_ENV → Environment type (development | production).
+
+-   CLOUDINARY_CLOUD_NAME / API_KEY / API_SECRET → Required if you’re using Cloudinary for file/image uploads.
+
+-   JWT_SECRET_KEY → Secret used to sign & verify JSON Web Tokens.
+
+-   ALLOWED_ORIGIN → Frontend URL allowed to access the backend (e.g., http://localhost:3000 in dev, or your Netlify domain in prod).
+
+### Frontend
+
+```
+# Backend API base URL
+VITE_API_BASE=http://localhost:5000
+
+```
+
+#### 📝 Explanation
+
+-   VITE_API_BASE → Points your frontend to the backend API.
+
+    -   In development, set it to http://localhost:5000.
+
+    -   In production, replace it with your deployed backend URL (e.g., https://your-backend.onrender.com).
 
 <br>
 
@@ -123,15 +200,17 @@ frontend/
 └── README.md             # Frontend-specific docs
 
 ```
+
 ### ✅ In summary:
 
-- Backend → Handles API, database (MongoDB), authentication, and business logic.
+-   Backend → Handles API, database (MongoDB), authentication, and business logic.
 
-- Frontend → React app with TailwindCSS, Redux for state management, and modular UI components.
+-   Frontend → React app with TailwindCSS, Redux for state management, and modular UI components.
 
-- Root → Common configs, docs, and Git settings.
+-   Root → Common configs, docs, and Git settings.
 
 # Support / Contact
+
 Name: Hanumant Haibati Dombale <br>
 Email: hanumantdombale@gmail.com <br>
 Phone No: 9769731290
