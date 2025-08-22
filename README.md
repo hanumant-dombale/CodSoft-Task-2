@@ -22,20 +22,8 @@ Website preview:-
     ![Filter jobs](./Assets/FilterJobsPage.png)
     ![Browse jobs](./Assets/BrowerJobPage.png)
 
--   Login page:<br>
-    ![Login](./Assets/LoginPage.png)
-
--   Sign up page:<br>
-    ![SignUp](./Assets/SignupPage.png)
-
 -   Profile page:<br>
     ![Profile](./Assets/ProfilePage.png)
-
--   Update page:<br>
-    ![Update](./Assets/UpdateInfoPope.png)
-
--   Navigation page:<br>
-    ![Profile](./Assets/NavigationPage.png)
 
 <br>
 
